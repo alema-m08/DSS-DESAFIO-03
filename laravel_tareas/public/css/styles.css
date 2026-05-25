@@ -1,0 +1,312 @@
+/* System Design - TaskOrganizer Elysian Deep Forest & Gold Theme */
+
+:root {
+    --bg-dark: #05100e; /* Deep Obsidian Emerald Forest */
+    --bg-card: rgba(10, 26, 23, 0.75); /* Deep forest translucent card */
+    --border-color: rgba(229, 193, 88, 0.12); /* Delicate champagne gold border */
+    --text-primary: #f2f7f5; /* Warm cream/white */
+    --text-secondary: #859e99; /* Sage green / muted mint-grey */
+    --primary-gradient: linear-gradient(135deg, #f5d77f 0%, #d4af37 50%, #aa7c11 100%); /* Premium Gold gradient */
+    --primary-color: #d4af37; /* Brass / Gold */
+    --primary-hover: #e5c158;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+}
+
+body {
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.03) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.03) 0px, transparent 50%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Glassmorphism Styles */
+.bg-glass {
+    background: var(--bg-card) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Gradients */
+.text-gradient {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.bg-gradient-vertical {
+    background: var(--primary-gradient) !important;
+    color: #05100e !important; /* High contrast dark forest text on gold */
+}
+
+/* Navbar customizations */
+.navbar {
+    z-index: 1000;
+    background: rgba(8, 22, 19, 0.8) !important;
+    border-bottom: 1px solid rgba(229, 193, 88, 0.1) !important;
+}
+.navbar-brand {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.5px;
+}
+.brand-logo-container {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(229, 193, 88, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(229, 193, 88, 0.15);
+}
+.profile-avatar-mini {
+    width: 28px;
+    height: 28px;
+    font-weight: 700;
+    font-size: 13px;
+    background: var(--primary-gradient) !important;
+    color: #05100e !important;
+}
+.text-secondary-light {
+    color: var(--text-secondary) !important;
+}
+.nav-link {
+    transition: all 0.2s ease-in-out;
+}
+.nav-link:hover {
+    color: var(--primary-color) !important;
+    background-color: rgba(229, 193, 88, 0.05);
+}
+.nav-link.active {
+    background-color: rgba(229, 193, 88, 0.1) !important;
+    color: var(--primary-color) !important;
+    border: 1px solid rgba(229, 193, 88, 0.15);
+}
+
+/* Stat Cards */
+.stat-icon-wrapper {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.stat-icon-wrapper.bg-primary {
+    background-color: rgba(212, 175, 55, 0.1) !important;
+    color: var(--primary-color) !important;
+}
+
+/* Custom inputs */
+.form-control, .form-select {
+    background-color: rgba(5, 16, 14, 0.6) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-control:focus, .form-select:focus {
+    background-color: rgba(10, 26, 23, 0.9) !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15) !important;
+}
+.form-control::placeholder {
+    color: #526b66;
+}
+.input-group-text {
+    background-color: rgba(10, 26, 23, 0.8) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-secondary) !important;
+    border-radius: 10px !important;
+}
+
+/* Buttons */
+.btn-primary {
+    color: #05100e !important;
+    font-weight: 700;
+    border: none !important;
+    box-shadow: 0 4px 14px 0 rgba(212, 175, 55, 0.2);
+    transition: all 0.2s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+    box-shadow: 0 6px 20px 0 rgba(212, 175, 55, 0.3);
+}
+.btn-primary:active {
+    transform: translateY(0);
+}
+.btn-logout {
+    color: var(--text-secondary);
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+.btn-logout:hover {
+    color: var(--danger-color);
+    background-color: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+/* Custom Checkbox */
+.form-check-input {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    background-color: rgba(229, 193, 88, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 6px !important;
+    transition: all 0.2s ease;
+}
+.form-check-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+}
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%2305100e' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e") !important;
+}
+
+/* Cards & Actions */
+.hover-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4) !important;
+    border-color: rgba(229, 193, 88, 0.3) !important;
+}
+.btn-action {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+.btn-action:hover {
+    color: var(--primary-color);
+    background-color: rgba(229, 193, 88, 0.08);
+    border-color: var(--primary-color);
+}
+.btn-outline-danger {
+    border-color: rgba(239, 68, 68, 0.2);
+}
+.btn-outline-danger:hover {
+    background-color: var(--danger-color) !important;
+    border-color: var(--danger-color) !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+/* Animations */
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Filters */
+.btn-filter {
+    background: transparent;
+    transition: all 0.2s ease;
+}
+.btn-filter.active {
+    background-color: rgba(229, 193, 88, 0.12) !important;
+    color: var(--primary-color) !important;
+    border: 1px solid rgba(229, 193, 88, 0.2) !important;
+}
+
+/* Toast custom styles */
+.toast-success {
+    background-color: #064e3b !important;
+    border: 1px solid #10b981 !important;
+    color: white;
+}
+.toast-error {
+    background-color: #7f1d1d !important;
+    border: 1px solid #ef4444 !important;
+    color: white;
+}
+.min-vh-80 {
+    min-height: 75vh;
+}
+.fs-7 {
+    font-size: 0.75rem;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.tracking-wider {
+    letter-spacing: 0.05em;
+}
+.tracking-tight {
+    letter-spacing: -0.025em;
+}
+.shadow-xl {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5) !important;
+}
+.shadow-sm {
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 0.2) !important;
+}
+.transition-all {
+    transition: all 0.2s ease;
+}
+.text-decoration-line-through {
+    text-decoration: line-through !important;
+    color: var(--text-secondary) !important;
+}
+.text-opacity-50 {
+    opacity: 0.4;
+}
+
+/* Custom styles for detail alerts */
+.alert {
+    background-color: rgba(10, 26, 23, 0.8) !important;
+    border: 1px solid var(--border-color) !important;
+}
+.alert-success {
+    border-color: rgba(16, 185, 129, 0.3) !important;
+    color: #34d399 !important;
+}
+.alert-danger {
+    border-color: rgba(239, 68, 68, 0.3) !important;
+    color: #f87171 !important;
+}
+
+/* Badges styling */
+.badge-status {
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Footer Container */
+.footer-container {
+    background-color: rgba(5, 16, 14, 0.95) !important;
+}

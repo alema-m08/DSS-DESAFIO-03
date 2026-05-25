@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Funcionamiento y Validaciones - TaskOrganizer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f3d32;
+            --primary-light: #165c4c;
+            --accent: #d4af37;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 50px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        header {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .logo-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .logo-title span {
+            color: var(--accent);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin: 10px 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--primary);
+            border-left: 4px solid var(--accent);
+            padding-left: 12px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--primary-light);
+            margin-top: 30px;
+            font-size: 1.2rem;
+        }
+
+        p, li {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-success {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .badge-danger {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .badge-info {
+            background-color: rgba(212, 175, 55, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* Alert/Callout box */
+        .callout {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary-light);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .print-instructions {
+            margin-top: 50px;
+            padding: 20px;
+            border: 1px dashed var(--accent);
+            background-color: rgba(212, 175, 55, 0.05);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Print styling overrides */
+        @media print {
+            body {
+                background-color: #ffffff;
+                color: #000000;
+            }
+
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .print-instructions {
+                display: none;
+            }
+
+            h2 {
+                page-break-before: always;
+            }
+
+            h2:first-of-type {
+                page-break-before: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-title">Task<span>Organizer</span></div>
+            <div class="subtitle">Manual de Funcionamiento y Validaciones Clave</div>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #94a3b8;">
+                Sistemas Evaluados: <strong>MVC Nativo (PHP 8.2)</strong> &amp; <strong>Laravel 12</strong>
+            </p>
+        </header>
+
+        <h2>1. Introducción al Funcionamiento</h2>
+        <p>
+            <strong>TaskOrganizer</strong> es un gestor de tareas colaborativo implementado bajo dos arquitecturas distintas pero compartiendo el mismo diseño visual premium <em>Elysian Deep Forest &amp; Gold</em>. El flujo básico consiste en:
+        </p>
+        <ul>
+            <li><strong>Autenticación de Usuarios</strong>: Registro de nuevas cuentas e inicio de sesión para delimitar el espacio de trabajo.</li>
+            <li><strong>Gestión de Tareas (CRUD)</strong>: Creación, lectura, edición y eliminación de tareas específicas para el usuario logueado.</li>
+            <li><strong>Actualización Asíncrona (AJAX)</strong>: Cambio inmediato del estado de las tareas (pendiente / completada) desde el Dashboard sin recargar la página.</li>
+        </ul>
+
+        <h2>2. Validaciones más Importantes (Seguridad y Datos)</h2>
+        <p>
+            Las validaciones se ejecutan tanto del lado del servidor (PHP/Laravel) para máxima seguridad, como del lado del cliente (HTML5) para una experiencia fluida. A continuación, se detallan las reglas críticas aplicadas:
+        </p>
+
+        <h3>A. Registro de Usuario</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Campo</th>
+                    <th>Validación Crítica</th>
+                    <th>Objetivo / Seguridad</th>
+                    <th>Comportamiento si Falla</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Nombre</strong></td>
+                    <td>Requerido. Tipo Texto.</td>
+                    <td>Evitar registros vacíos.</td>
+                    <td>Muestra alerta "El nombre es requerido".</td>
+                </tr>
+                <tr>
+                    <td><strong>Email</strong></td>
+                    <td>Requerido. Formato de correo válido. Único en base de datos.</td>
+                    <td>Evitar correos corruptos y cuentas duplicadas.</td>
+                    <td>Alerta: "Este correo electrónico ya está registrado".</td>
+                </tr>
+                <tr>
+                    <td><strong>Contraseña</strong></td>
+                    <td>Mínimo de 6 caracteres. Coincidencia obligatoria con confirmación.</td>
+                    <td>Fuerza longitud mínima de seguridad. Evita errores de tipeo.</td>
+                    <td>Alerta: "Las contraseñas no coinciden" o longitud insuficiente.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>B. Inicio de Sesión (Login)</h3>
+        <ul>
+            <li><strong>Campos Requeridos</strong>: Ambos campos (email y contraseña) no pueden enviarse vacíos.</li>
+            <li><strong>Existencia de Cuenta</strong>: Se verifica si el correo electrónico existe en la base de datos.</li>
+            <li><strong>Criptografía</strong>: La contraseña ingresada se verifica mediante la función nativa <code>password_verify()</code> contra el hash seguro encriptado con <strong>Bcrypt</strong>.</li>
+        </ul>
+
+        <h3>C. Gestión de Tareas</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Operación</th>
+                    <th>Validación Aplicada</th>
+                    <th>Tipo de Control</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Creación</strong></td>
+                    <td>Título obligatorio (no vacío). Máximo 255 caracteres.</td>
+                    <td>Servidor e HTML5 (<code>required</code>).</td>
+                </tr>
+                <tr>
+                    <td><strong>Edición</strong></td>
+                    <td>Propiedad de la tarea. El ID de la tarea debe pertenecer al usuario autenticado.</td>
+                    <td>Control de Autorización (SQL query condicionado por <code>user_id</code>).</td>
+                </tr>
+                <tr>
+                    <td><strong>Cambio de Estado</strong></td>
+                    <td>Solo admite valores <code>pendiente</code> o <code>completada</code>.</td>
+                    <td>Validación estricta de array en MVC Nativo y regla <code>in:pendiente,completada</code> en Laravel.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>3. Medidas de Seguridad Clave</h2>
+        <div class="callout">
+            <div class="callout-title">Protección Contra Inyección SQL</div>
+            <p style="margin: 0; font-size: 0.9rem;">
+                Tanto en MVC Nativo como en Laravel, se utilizan **Consultas Preparadas (Prepared Statements)** mediante PDO y Eloquent ORM. Las variables del usuario nunca se concatenan directamente en la consulta SQL, previniendo ataques maliciosos de inyección de código.
+            </p>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">Protección Contra Falsificación de Peticiones en Sitios Cruzados (CSRF)</div>
+            <p style="margin: 0; font-size: 0.9rem;">
+                La versión Laravel utiliza tokens <strong>CSRF</strong> en todos los formularios y peticiones AJAX (incluido el toggle de estados). Cualquier petición POST/PUT/DELETE sin un token válido es automáticamente bloqueada por el Middleware de Laravel, impidiendo ataques de terceros.
+            </p>
+        </div>
+
+        <div class="callout">
+            <div class="callout-title">Encriptación de Contraseñas</div>
+            <p style="margin: 0; font-size: 0.9rem;">
+                Las contraseñas se almacenan únicamente en su formato hash cifrado de una sola vía (utilizando <strong>Bcrypt</strong>). Incluso en caso de un acceso no autorizado a la base de datos, las claves originales de los usuarios permanecen seguras.
+            </p>
+        </div>
+
+        <h2>4. Mecanismo AJAX (Cambio de Estado Asíncrono)</h2>
+        <p>
+            Cuando un usuario marca el checkbox de una tarea en el Dashboard, ocurre el siguiente flujo técnico:
+        </p>
+        <ol>
+            <li><strong>Interceptación de Evento</strong>: JavaScript detecta el cambio en el checkbox y bloquea la recarga de página estándar.</li>
+            <li><strong>Petición HTTP</strong>: Se dispara un Fetch asíncrono con método <code>POST</code> (MVC Nativo) o <code>PATCH</code> (Laravel) hacia la ruta de actualización.</li>
+            <li><strong>Verificación de Sesión y Propiedad</strong>: El servidor comprueba que el usuario está logueado y que la tarea le pertenece.</li>
+            <li><strong>Persistencia</strong>: Se actualiza el campo <code>estado</code> en la base de datos de MySQL.</li>
+            <li><strong>Respuesta Dinámica</strong>: El servidor responde en formato JSON. El frontend actualiza los contadores de tareas pendientes/completadas en la parte superior y despliega una notificación flotante (Toast) de éxito en la esquina inferior derecha.</li>
+        </ol>
+
+        <div class="print-instructions">
+            <p style="margin: 0 0 10px 0; font-weight: 600; color: var(--primary);">¿Cómo guardar este documento como PDF?</p>
+            <p style="margin: 0; font-size: 0.85rem;">
+                Presiona <strong>Ctrl + P</strong> (o Cmd + P en Mac) en tu navegador, selecciona la impresora <strong>"Guardar como PDF"</strong> o <strong>"Save as PDF"</strong>, y haz clic en Guardar. El archivo HTML está optimizado para imprimirse directamente en hojas físicas o digitales con diseño formal.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>

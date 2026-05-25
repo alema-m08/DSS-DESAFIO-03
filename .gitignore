@@ -1,0 +1,11 @@
+/laravel_tareas/vendor/
+/laravel_tareas/.env
+/laravel_tareas/bootstrap/cache/*
+/laravel_tareas/storage/framework/cache/*
+/laravel_tareas/storage/framework/sessions/*
+/laravel_tareas/storage/framework/views/*
+/laravel_tareas/storage/logs/*
+.env
+.phpunit.result.cache
+composer.lock
+/laravel_tareas/node_modules/
