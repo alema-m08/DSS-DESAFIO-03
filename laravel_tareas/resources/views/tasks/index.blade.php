@@ -16,7 +16,6 @@
     </div>
 </div>
 
-<!-- Stats Indicators -->
 <div class="row g-4 mb-5 animate-fade-in" style="animation-delay: 0.1s">
     <div class="col-12 col-sm-4">
         <div class="card bg-glass rounded-4 p-4 border border-light border-opacity-10">
@@ -63,7 +62,7 @@
     </div>
 </div>
 
-<!-- Filters & Cards Grid -->
+
 <div class="animate-fade-in" style="animation-delay: 0.2s">
     <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-3">
         <div class="d-flex gap-2">
@@ -76,7 +75,7 @@
         </div>
     </div>
 
-    <!-- Empty State -->
+    
     <div class="card bg-glass rounded-4 p-5 text-center border border-light border-opacity-10 {{ count($tasks) > 0 ? 'd-none' : '' }}" id="empty-state">
         <div class="py-4">
             <i class="fa-regular fa-folder-open text-secondary-light fs-1 mb-3 opacity-50"></i>
@@ -88,13 +87,13 @@
         </div>
     </div>
 
-    <!-- Tasks List Grid -->
+    
     <div class="row g-4" id="tasks-grid">
         @foreach($tasks as $task)
             <div class="col-12 col-md-6 col-lg-4 task-card-item" data-status="{{ $task->estado }}" id="task-card-{{ $task->id }}">
                 <div class="card bg-glass rounded-4 p-4 hover-card border border-light border-opacity-10 h-100 d-flex flex-column justify-content-between">
                     <div>
-                        <!-- Header Card -->
+                        
                         <div class="d-flex align-items-start justify-content-between mb-3">
                             <div class="form-check d-flex align-items-center gap-1">
                                 <input class="form-check-input check-status-ajax" type="checkbox" 
@@ -107,7 +106,7 @@
                             </span>
                         </div>
 
-                        <!-- Card Content -->
+                        
                         <h4 class="fw-bold text-white mb-2 task-title {{ $task->estado === 'completada' ? 'text-decoration-line-through text-opacity-50' : '' }}">
                             {{ $task->titulo }}
                         </h4>
@@ -116,7 +115,7 @@
                         </p>
                     </div>
 
-                    <!-- Footer Actions -->
+                    
                     <div class="d-flex align-items-center justify-content-between pt-3 border-top border-light border-opacity-10 mt-auto">
                         <span class="text-secondary-light fs-7 d-flex align-items-center gap-1.5">
                             <i class="fa-regular fa-calendar"></i>
@@ -146,7 +145,7 @@
 @section('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. Filtering Logic
+
     const filterButtons = document.querySelectorAll('.btn-filter');
     const taskCards = document.querySelectorAll('.task-card-item');
     const visibleCountEl = document.getElementById('visible-count');
@@ -155,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     filterButtons.forEach(btn => {
         btn.addEventListener('click', function () {
-            // Remove active class from all
+
             filterButtons.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
 
@@ -174,13 +173,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             visibleCountEl.textContent = visibleCount;
 
-            // Handle empty states for filters
+
             if (visibleCount === 0) {
                 if (filterValue === 'all') {
                     emptyState.classList.remove('d-none');
                     tasksGrid.classList.add('d-none');
                 } else {
-                    // Just show no items matching filters
+
                     emptyState.classList.add('d-none');
                     tasksGrid.classList.remove('d-none');
                 }
@@ -191,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 2. AJAX Toggle Status Logic
+
     const checkboxes = document.querySelectorAll('.check-status-ajax');
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function () {
@@ -201,11 +200,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const descEl = card.querySelector('.task-desc');
             const badgeEl = card.querySelector('.status-badge');
 
-            // Save checked state to restore on failure
+
             const isChecked = this.checked;
 
-            // AJAX Request
-            fetch(`/laravel_tareas/public/tareas/toggle/${taskId}`, {
+
+            fetch(`{{ url('tareas/toggle') }}/${taskId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -221,10 +220,10 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(data => {
                 if (data.success) {
-                    // Update frontend model state attribute
+
                     card.setAttribute('data-status', data.estado);
 
-                    // Update styling
+
                     if (data.estado === 'completada') {
                         titleEl.classList.add('text-decoration-line-through', 'text-opacity-50');
                         descEl.classList.add('text-opacity-50');
@@ -239,36 +238,36 @@ document.addEventListener('DOMContentLoaded', function () {
                         badgeEl.className = 'badge text-uppercase tracking-wider px-2-5 py-1-5 rounded-3 fs-7 status-badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25';
                     }
 
-                    // Dynamically recalculate stats counts
+
                     updateStats();
                     
-                    // Re-run active filter to hide/show card accordingly
+
                     const activeFilter = document.querySelector('.btn-filter.active').getAttribute('data-filter');
                     if (activeFilter !== 'all' && activeFilter !== data.estado) {
                         card.classList.add('d-none');
-                        // Decrease visible count
+
                         let currentVisible = parseInt(visibleCountEl.textContent);
                         visibleCountEl.textContent = currentVisible - 1;
                     }
 
-                    // Show a toast message
+
                     showToast(data.message, 'success');
                 } else {
-                    // Rollback checkbox
+
                     this.checked = !isChecked;
                     showToast('No se pudo actualizar el estado de la tarea.', 'error');
                 }
             })
             .catch(error => {
                 console.error(error);
-                // Rollback checkbox
+
                 this.checked = !isChecked;
                 showToast('Error al conectar con el servidor.', 'error');
             });
         });
     });
 
-    // Helper to update stats dashboard dynamically
+
     function updateStats() {
         const total = taskCards.length;
         let pending = 0;
@@ -285,9 +284,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('stat-completed').textContent = completed;
     }
 
-    // Helper to create and show dynamic toast notifications
+
     function showToast(message, type) {
-        // Remove existing toast container if any to prevent stack clutter
+
         const container = document.querySelector('.toast-container');
         if (container) container.remove();
 
