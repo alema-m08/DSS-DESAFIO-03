@@ -89,7 +89,6 @@ class AuthController {
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = "El formato de correo no es válido.";
         } else {
-            // Validar si el email ya existe
             $existing = $this->userModel->findByEmail($email);
             if ($existing) {
                 $errors['email'] = "Este correo electrónico ya está registrado.";

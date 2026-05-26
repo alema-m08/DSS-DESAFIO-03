@@ -2,7 +2,7 @@
     <div class="row w-100 justify-content-center">
         <div class="col-md-6 col-lg-5">
 
-            <!-- Success/Error Banners -->
+            
             <?php if (Session::hasFlash('error')): ?>
                 <div class="alert alert-danger border-0 shadow-lg text-white mb-4 d-flex align-items-center" role="alert">
                     <i class="fa-solid fa-triangle-exclamation me-2 fs-5"></i>
@@ -16,7 +16,7 @@
             ?>
 
             <div class="card bg-glass border-secondary-subtle shadow-xl overflow-hidden rounded-4 animate-fade-in">
-                <!-- Decorative Top line -->
+                
                 <div class="bg-primary bg-gradient-vertical py-1 w-100"></div>
 
                 <div class="card-body p-4 p-md-5">
@@ -29,7 +29,7 @@
                     </div>
 
                     <form action="<?php echo BASE_URL; ?>/registro" method="POST" id="register-form" novalidate>
-                        <!-- Name Input -->
+                        
                         <div class="form-group mb-3">
                             <label for="nombre" class="form-label text-white small fw-medium">Nombre Completo</label>
                             <div class="input-group">
@@ -43,7 +43,7 @@
                             </div>
                         </div>
 
-                        <!-- Email Input -->
+                        
                         <div class="form-group mb-3">
                             <label for="email" class="form-label text-white small fw-medium">Correo Electrónico</label>
                             <div class="input-group">
@@ -57,7 +57,7 @@
                             </div>
                         </div>
 
-                        <!-- Password Input -->
+                        
                         <div class="form-group mb-3">
                             <label for="password" class="form-label text-white small fw-medium">Contraseña</label>
                             <div class="input-group">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
 
-                        <!-- Confirm Password Input -->
+                        
                         <div class="form-group mb-4">
                             <label for="confirm_password" class="form-label text-white small fw-medium">Confirmar Contraseña</label>
                             <div class="input-group">
@@ -85,7 +85,7 @@
                             </div>
                         </div>
 
-                        <!-- Submit Button -->
+                        
                         <button type="submit" class="btn btn-primary bg-gradient-vertical w-100 py-2.5 rounded-pill fw-bold text-white shadow border-0" id="register-submit-btn">
                             <i class="fa-solid fa-user-plus me-2"></i>Registrar Cuenta
                         </button>

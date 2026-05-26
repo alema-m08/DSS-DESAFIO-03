@@ -1,13 +1,11 @@
-/* System Design - TaskOrganizer Elysian Deep Forest & Gold Theme */
-
 :root {
-    --bg-dark: #05100e; /* Deep Obsidian Emerald Forest */
-    --bg-card: rgba(10, 26, 23, 0.75); /* Deep forest translucent card */
-    --border-color: rgba(229, 193, 88, 0.12); /* Delicate champagne gold border */
-    --text-primary: #f2f7f5; /* Warm cream/white */
-    --text-secondary: #859e99; /* Sage green / muted mint-grey */
-    --primary-gradient: linear-gradient(135deg, #f5d77f 0%, #d4af37 50%, #aa7c11 100%); /* Premium Gold gradient */
-    --primary-color: #d4af37; /* Brass / Gold */
+    --bg-dark: #05100e;
+    --bg-card: rgba(10, 26, 23, 0.75);
+    --border-color: rgba(229, 193, 88, 0.12);
+    --text-primary: #f2f7f5;
+    --text-secondary: #859e99;
+    --primary-gradient: linear-gradient(135deg, #f5d77f 0%, #d4af37 50%, #aa7c11 100%);
+    --primary-color: #d4af37;
     --primary-hover: #e5c158;
     --success-color: #10b981;
     --warning-color: #f59e0b;
@@ -16,7 +14,7 @@
 
 body {
     background-color: var(--bg-dark);
-    background-image: 
+    background-image:
         radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.03) 0px, transparent 50%),
         radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.03) 0px, transparent 50%);
     background-attachment: fixed;
@@ -27,7 +25,6 @@ body {
     flex-direction: column;
 }
 
-/* Glassmorphism Styles */
 .bg-glass {
     background: var(--bg-card) !important;
     backdrop-filter: blur(16px);
@@ -36,7 +33,6 @@ body {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
-/* Gradients */
 .text-gradient {
     background: var(--primary-gradient);
     -webkit-background-clip: text;
@@ -46,10 +42,8 @@ body {
 
 .bg-gradient-vertical {
     background: var(--primary-gradient) !important;
-    color: #05100e !important; /* High contrast dark forest text on gold */
+    color: #05100e !important;
 }
-
-/* Navbar customizations */
 .navbar {
     z-index: 1000;
     background: rgba(8, 22, 19, 0.8) !important;
@@ -93,7 +87,6 @@ body {
     border: 1px solid rgba(229, 193, 88, 0.15);
 }
 
-/* Stat Cards */
 .stat-icon-wrapper {
     width: 52px;
     height: 52px;
@@ -106,8 +99,6 @@ body {
     background-color: rgba(212, 175, 55, 0.1) !important;
     color: var(--primary-color) !important;
 }
-
-/* Custom inputs */
 .form-control, .form-select {
     background-color: rgba(5, 16, 14, 0.6) !important;
     border: 1px solid var(--border-color) !important;
@@ -131,7 +122,6 @@ body {
     border-radius: 10px !important;
 }
 
-/* Buttons */
 .btn-primary {
     color: #05100e !important;
     font-weight: 700;
@@ -158,8 +148,6 @@ body {
     background-color: rgba(239, 68, 68, 0.08);
     border-color: rgba(239, 68, 68, 0.2);
 }
-
-/* Custom Checkbox */
 .form-check-input {
     width: 1.5rem;
     height: 1.5rem;
@@ -178,8 +166,6 @@ body {
     border-color: var(--primary-color);
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%2305100e' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e") !important;
 }
-
-/* Cards & Actions */
 .hover-card {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -214,7 +200,6 @@ body {
     box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
 }
 
-/* Animations */
 .animate-fade-in {
     animation: fadeIn 0.4s ease-out forwards;
 }
@@ -230,7 +215,6 @@ body {
     }
 }
 
-/* Filters */
 .btn-filter {
     background: transparent;
     transition: all 0.2s ease;
@@ -240,8 +224,6 @@ body {
     color: var(--primary-color) !important;
     border: 1px solid rgba(229, 193, 88, 0.2) !important;
 }
-
-/* Toast custom styles */
 .toast-success {
     background-color: #064e3b !important;
     border: 1px solid #10b981 !important;
@@ -284,7 +266,6 @@ body {
     opacity: 0.4;
 }
 
-/* Custom styles for detail alerts */
 .alert {
     background-color: rgba(10, 26, 23, 0.8) !important;
     border: 1px solid var(--border-color) !important;
@@ -298,7 +279,6 @@ body {
     color: #f87171 !important;
 }
 
-/* Badges styling */
 .badge-status {
     border-radius: 6px;
     font-weight: 600;
@@ -306,7 +286,6 @@ body {
     letter-spacing: 0.05em;
 }
 
-/* Footer Container */
 .footer-container {
     background-color: rgba(5, 16, 14, 0.95) !important;
 }

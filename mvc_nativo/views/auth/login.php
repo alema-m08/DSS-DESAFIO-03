@@ -2,7 +2,7 @@
     <div class="row w-100 justify-content-center">
         <div class="col-md-5 col-lg-4">
             
-            <!-- Success/Error Banners -->
+            
             <?php if (Session::hasFlash('success')): ?>
                 <div class="alert alert-success border-0 shadow-lg text-white mb-4 d-flex align-items-center" role="alert">
                     <i class="fa-solid fa-circle-check me-2 fs-5"></i>
@@ -23,7 +23,7 @@
             ?>
 
             <div class="card bg-glass border-secondary-subtle shadow-xl overflow-hidden rounded-4 animate-fade-in">
-                <!-- Decorative Top line -->
+                
                 <div class="bg-primary bg-gradient-vertical py-1 w-100"></div>
 
                 <div class="card-body p-4 p-md-5">
@@ -36,7 +36,7 @@
                     </div>
 
                     <form action="<?php echo BASE_URL; ?>/login" method="POST" id="login-form" novalidate>
-                        <!-- Email Input -->
+                        
                         <div class="form-group mb-3">
                             <label for="email" class="form-label text-white small fw-medium">Correo Electrónico</label>
                             <div class="input-group">
@@ -50,7 +50,7 @@
                             </div>
                         </div>
 
-                        <!-- Password Input -->
+                        
                         <div class="form-group mb-4">
                             <label for="password" class="form-label text-white small fw-medium">Contraseña</label>
                             <div class="input-group">
@@ -64,7 +64,7 @@
                             </div>
                         </div>
 
-                        <!-- Submit Button -->
+                        
                         <button type="submit" class="btn btn-primary bg-gradient-vertical w-100 py-2.5 rounded-pill fw-bold text-white shadow border-0" id="login-submit-btn">
                             <i class="fa-solid fa-right-to-bracket me-2"></i>Ingresar
                         </button>

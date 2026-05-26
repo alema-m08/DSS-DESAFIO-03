@@ -12,7 +12,7 @@
                 <p class="text-secondary-light">Empieza a organizar tus tareas de forma premium hoy mismo.</p>
             </div>
 
-            <!-- Validation Errors -->
+            
             @if ($errors->any())
                 <div class="alert alert-danger border-0 rounded-3 text-white fs-7 py-2 px-3" style="background-color: rgba(239, 68, 68, 0.15); border: 1px solid rgba(239, 68, 68, 0.2) !important;">
                     <ul class="mb-0 ps-3">
@@ -26,7 +26,7 @@
             <form action="{{ route('register') }}" method="POST">
                 @csrf
                 
-                <!-- Name Field -->
+                
                 <div class="mb-3">
                     <label for="name" class="form-label text-secondary-light fs-7 uppercase tracking-wider fw-bold">Nombre Completo</label>
                     <div class="input-group">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <!-- Email Field -->
+                
                 <div class="mb-3">
                     <label for="email" class="form-label text-secondary-light fs-7 uppercase tracking-wider fw-bold">Correo Electrónico</label>
                     <div class="input-group">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
 
-                <!-- Password Field -->
+                
                 <div class="mb-3">
                     <label for="password" class="form-label text-secondary-light fs-7 uppercase tracking-wider fw-bold">Contraseña</label>
                     <div class="input-group">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <!-- Password Confirmation Field -->
+                
                 <div class="mb-4">
                     <label for="password_confirmation" class="form-label text-secondary-light fs-7 uppercase tracking-wider fw-bold">Confirmar Contraseña</label>
                     <div class="input-group">
@@ -70,7 +70,7 @@
                     </div>
                 </div>
 
-                <!-- Submit Button -->
+                
                 <button type="submit" class="btn btn-primary bg-gradient-vertical border-0 w-100 py-3 rounded-3 fw-bold text-white shadow-sm mb-3">
                     Registrarse
                 </button>

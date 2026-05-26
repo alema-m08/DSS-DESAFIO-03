@@ -1,7 +1,7 @@
 <div class="container py-4 d-flex justify-content-center">
     <div class="col-md-8 col-lg-6">
 
-        <!-- PHP Error Banner -->
+        
         <?php if (Session::hasFlash('error')): ?>
             <div class="alert alert-danger border-0 shadow-lg text-white mb-4 d-flex align-items-center animate-fade-in" role="alert">
                 <i class="fa-solid fa-triangle-exclamation me-2 fs-5"></i>
@@ -14,7 +14,7 @@
         ?>
 
         <div class="card bg-glass border-secondary-subtle shadow-xl overflow-hidden rounded-4 animate-fade-in">
-            <!-- Decorative Top line -->
+            
             <div class="bg-primary bg-gradient-vertical py-1 w-100"></div>
 
             <div class="card-body p-4 p-md-5">
@@ -30,7 +30,7 @@
 
                 <form action="<?php echo BASE_URL; ?>/tareas/editar/<?php echo $task['id']; ?>" method="POST" id="edit-task-form" novalidate>
                     
-                    <!-- Title Input -->
+                    
                     <div class="form-group mb-4">
                         <label for="titulo" class="form-label text-white small fw-medium">Título de la Tarea</label>
                         <input type="text" 
@@ -45,7 +45,7 @@
                         <?php endif; ?>
                     </div>
 
-                    <!-- Description Input -->
+                    
                     <div class="form-group mb-4">
                         <label for="descripcion" class="form-label text-white small fw-medium">Descripción (Opcional)</label>
                         <textarea class="form-control bg-white bg-opacity-5 border-secondary-subtle text-white py-2.5" 
@@ -55,7 +55,7 @@
                                   placeholder="Detalla los puntos importantes de esta tarea..."><?php echo htmlspecialchars($task['descripcion']); ?></textarea>
                     </div>
 
-                    <!-- Status Input -->
+                    
                     <div class="form-group mb-4">
                         <label for="estado" class="form-label text-white small fw-medium">Estado de la Tarea</label>
                         <select class="form-select bg-white bg-opacity-5 border-secondary-subtle text-white py-2.5 <?php echo isset($errors['estado']) ? 'is-invalid' : ''; ?>" 
@@ -70,7 +70,7 @@
                         <?php endif; ?>
                     </div>
 
-                    <!-- Submit & Cancel Buttons -->
+                    
                     <div class="d-flex gap-3 mt-5">
                         <a href="<?php echo BASE_URL; ?>/dashboard" class="btn btn-outline-light rounded-pill px-4 py-2.5 w-50 fw-semibold" id="cancel-edit-btn">
                             Cancelar

@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TaskController;
 
-// Auth Routes (Guest)
 Route::middleware('guest')->group(function () {
     Route::get('/', [AuthController::class, 'showLogin'])->name('login');
     Route::get('/login', [AuthController::class, 'showLogin']);
@@ -13,7 +12,6 @@ Route::middleware('guest')->group(function () {
     Route::post('/registro', [AuthController::class, 'register']);
 });
 
-// App Routes (Auth Required)
 Route::middleware('auth')->group(function () {
     Route::get('/tareas', [TaskController::class, 'index'])->name('dashboard');
     Route::get('/tareas/crear', [TaskController::class, 'create'])->name('tasks.create');
@@ -22,7 +20,6 @@ Route::middleware('auth')->group(function () {
     Route::put('/tareas/editar/{id}', [TaskController::class, 'update'])->name('tasks.update');
     Route::delete('/tareas/eliminar/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
     Route::post('/tareas/toggle/{id}', [TaskController::class, 'toggle'])->name('tasks.toggle');
-    
-    // Auth Logout
+
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
